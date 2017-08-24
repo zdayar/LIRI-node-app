@@ -1,13 +1,17 @@
 {
-  "name": "2-with-package",
+  "name": "LIRI Node App",
   "version": "1.0.0",
-  "description": "",
-  "main": "request.js",
+  "description": "Gets tweets, track info, and movie info based on user input",
+  "main": "liri.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Twitter",
+    "Spotify",
+    "OMDB"
+  ],
+  "author": "Zeynep Dayar",
   "license": "ISC",
   "dependencies": {
     "node-spotify-api": "^1.0.7",

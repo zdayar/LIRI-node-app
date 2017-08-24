@@ -3,18 +3,19 @@
  */
 var request = require('request');
 var fs = require('fs');
+var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify({
-        id: 'cda125c164944b30935d9fe3f2065b21',
-        secret: '3d1d2faffb22404fa4ca7d94f07400fa'
+        id: keys.spotifyKeys.client_id,
+        secret: keys.spotifyKeys.client_secret
 });
 
 var Twitter = require('twitter');
 var twitterClient = new Twitter({
-    consumer_key: 'G4OAcciMxx5bp3DBJAwDTDagE',
-    consumer_secret: '2VMbohZ6x2zdtXjdXZ6fNdQvPTzrwFH5wyxQnz5dWD99PWqq4g',
-    access_token_key: '899670418705043456-oMMUoWZ465ar4mtajwzfwmpeHFyKqOD',
-    access_token_secret: 'g7O3UtQ2WwGSgexKmr5MPoh3IXBK01ECncqg1Ej1ILLLI'
+    consumer_key: keys.twitterKeys.consumer_key,
+    consumer_secret: keys.twitterKeys.consumer_secret,
+    access_token_key: keys.twitterKeys.access_token_key,
+    access_token_secret: keys.twitterKeys.access_token_secret
 });
 
 var words;
@@ -68,7 +69,7 @@ function movie_search() {
         movieName = words.join(' ');
     }
 
-    reqUrl = "http://www.omdbapi.com/?apikey=40e9cece&t=" + movieName;
+    reqUrl = "http://www.omdbapi.com/?apikey=" + keys.omdbKeys.api_key + "&t=" + movieName;
     request(reqUrl, function (error, response, body) {
 
         if (error) {

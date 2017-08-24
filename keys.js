@@ -14,3 +14,7 @@ exports.spotifyKeys = {
     client_id: 'cda125c164944b30935d9fe3f2065b21',
     client_secret: '3d1d2faffb22404fa4ca7d94f07400fa'
 };
+
+exports.omdbKeys = {
+    api_key: '40e9cece'
+};
