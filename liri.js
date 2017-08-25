@@ -22,8 +22,11 @@ var words;
 var command = process.argv[2];
 var reqUrl;
 
+// call the function to process the command
 liriProcess(command);
 
+// This is the main function that will process whatever command is entered in the command line
+// (or read from the file random.txt)
 function liriProcess(command) {
     switch (command) {
         case 'movie-this':
@@ -39,6 +42,7 @@ function liriProcess(command) {
             break;
 
         case 'do-what-it-says':
+            // read from the random.txt file
             fs.readFile("random.txt", "utf8", function (error, data) {
                 if (error) {
                     return console.log(error);
@@ -48,11 +52,14 @@ function liriProcess(command) {
                 var dataArr = data.split(",");
                 command = dataArr[0];
 
+                // set process.argc and process.argv based on what's in the file
+                // skip provcess argv[0] and [1] since normally those are "node" and filename
                 process.argc = dataArr.length;
                 for (var l = 0; l < dataArr.length; l++) {
                     process.argv[l+2] = dataArr[l];
                 }
 
+                // now process the command
                 liriProcess(command);
             });
             break;
